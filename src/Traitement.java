@@ -11,11 +11,13 @@ import javax.imageio.ImageIO;
 
 public class Traitement {
 	int[][][] imagefinale;
+	int[][] image_traitee;
+	Couleur[] palette;
 	public Traitement(int[][][] image, int w, int h) 
 	{
 		
-		
-		Couleur[] palette;
+		//contructeur: reçois un tableau de w*h*3 entiers (RVB)
+		//et construit une palette et une image traitée par la palette
 		//passage d'un tableau w*h à un tableau à une ligne
 		int[][] line= linear(image,w,h);
 		//création d'un arbre à partir de line
@@ -24,17 +26,19 @@ public class Traitement {
 		line = CoulToInt(palette);
 		KdTree Arbre2 = InitFromArray(line);
 		System.out.println("arbre de la palette créé.");
-		int[][] image_traitee = quantif(Arbre2, image, w,h, palette);
+		image_traitee = quantif(Arbre2, image, w,h, palette);
 		System.out.println("Image Traitée!!!");
 		imagefinale = ajoutcoul(image_traitee, palette,w,h);		
  }
 
 	public int[][][] returnImage()
+	//renvoie l'image prêt à être affichée
 	{
 		return this.imagefinale;
 	}
 	public int[][][] ajoutcoul(int[][] image, Couleur[] palette, int w, int h)
 	{
+		//change l'image compressée obtenue par une image en RVB, à partir d'une palette
 		int[][][] imagefinale = new int[w][h][3];
 		int i,j;
 		for (i=0; i<w; i++)
@@ -48,6 +52,8 @@ public class Traitement {
 	}
 	public int[][] quantif(KdTree Arbre, int[][][] image, int w, int h, Couleur[] pal)
 	{
+		//à partir d'un arbre contenant les couleurs d'une palette,
+		// et renvoie un tableau avec les positions des couleurs dans la liste palette
 		int[][] image_t= new int[w][h];
 		Couleur A= new Couleur(0,0,0);
 		int i,j;
@@ -65,6 +71,7 @@ public class Traitement {
 	
 	public int[][] CoulToInt(Couleur[] pal)
 	{
+		// transforme un tableau de couleur en tableau d'entiers
 		int[][] line = new int[pal.length][3];
 		int i;
 		for(i=0;i<pal.length;i++)
@@ -77,6 +84,8 @@ public class Traitement {
 	
 	public void printpal(Couleur[] pal)
 	{
+		//Affiche les couleurs de la palette
+		//fonction à but de test
 		int i;
 		for(i=0;i<pal.length;i++)
 		{

@@ -8,9 +8,6 @@ public class KdTree{
 		Couleur CouleurR=new Couleur(RVB[0], RVB[1], RVB[2]);
 		this.Racine= new KdNode(CouleurR,0);
 	}
-	
-
-
 	public void addpoint(int RVB[]){
 		// ajout un point à l'arbre en le donnant à la racine.
 		//actualise la profondeur de l'arbre
@@ -30,7 +27,6 @@ public class KdTree{
 		palette= Racine.palnode(palette);
 		return palette;
 	}
-	
 	public int getNearestNeighbors(Couleur A, Couleur[] pal)
 	{
 		//Trouve le plus proche voisin dans l'arbre d'une couleur A donnée,
@@ -46,6 +42,5 @@ public class KdTree{
 		}
 		return 0;
 	}
-
 
 }

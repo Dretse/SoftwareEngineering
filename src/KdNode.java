@@ -48,10 +48,14 @@ public class KdNode {
 	}
 	public Couleur getcoul()
 	{
+		//renvoie la couleur associée au noeud
 		return coul;
 	}
 	public Couleur[] palnode(Couleur[] pal)
 	{
+		// Renvoie une palette de couleur de la taille de la palette (vide) fournie
+		//découpe la palette en 2 à chaque fois en demandant aux fils,
+		//si il ne reste qu'une palette de 2 cases: demande sa moyenne à chacun des fils
 		int L= pal.length;
 		if(L==2)
 		{
@@ -90,6 +94,7 @@ public class KdNode {
 	}
 	public Couleur Moy()
 	{
+		//Renvoie la couleur moyenne d'un noeud
 		if(filsG!=null && filsD!=null)
 		{
 			Couleur A = (filsD.Moy()).moyenne(coul);
@@ -113,6 +118,7 @@ public class KdNode {
 	}
 	public Couleur getNN(Couleur A)
 	{
+		// Trouve le plus proche voisin d'une couleur dans l'arbre 
 		if ((A.getRVB())[P%3] > (coul.getRVB())[P%3])
 		{
 			if (filsD!=null)
