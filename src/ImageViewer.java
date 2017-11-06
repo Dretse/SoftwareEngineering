@@ -69,9 +69,7 @@ public class ImageViewer extends JFrame /*implements ActionListener*/
 		quant.add(buttonQuant);
 		// Defines action associated to buttons
 		
-		// ##########  CLASS QUANT  ##########
 		buttonQuant.addActionListener(new Quanti());
-// ############## FIN CLASS QUANT #############
 		buttonInverse.addActionListener(new ButtonListener(){
 			public void actionPerformed(ActionEvent arg0) {						
 	    		BufferedImage Invimage;
@@ -235,4 +233,5 @@ public class ImageViewer extends JFrame /*implements ActionListener*/
 
 	}
 }
+
 

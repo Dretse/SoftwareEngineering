@@ -1,14 +1,3 @@
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-
-
-import javax.imageio.ImageIO;
-
 public class Traitement {
 	int[][][] imagefinale;
 	int[][] image_traitee;
@@ -30,7 +19,6 @@ public class Traitement {
 		System.out.println("Image Traitée!!!");
 		imagefinale = ajoutcoul(image_traitee, palette,w,h);		
  }
-
 	public int[][][] returnImage()
 	//renvoie l'image prêt à être affichée
 	{
@@ -67,8 +55,7 @@ public class Traitement {
 		}
 		
 		return image_t;
-	}
-	
+	}	
 	public int[][] CoulToInt(Couleur[] pal)
 	{
 		// transforme un tableau de couleur en tableau d'entiers
@@ -80,8 +67,7 @@ public class Traitement {
 			line[i]=A;
 		}
 		return line;
-	}
-	
+	}	
 	public void printpal(Couleur[] pal)
 	{
 		//Affiche les couleurs de la palette
@@ -91,10 +77,10 @@ public class Traitement {
 		{
 			pal[i].printcoul();
 		}
-	}
-	
+	}	
 	public void printtab(int[][] tableau, int dim)
 	{
+		//affiche un tableau (fonction de test)
 		int i;
 		for (i=0; i<tableau.length; i++)
 		{
@@ -150,8 +136,7 @@ public class Traitement {
 		}
 		return Retour;
 
-	}
-	
+	}	
 	KdTree InitFromArray(int[][] line)
 	{
 		line = tridim(line, 0);
